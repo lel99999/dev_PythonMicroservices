@@ -2,6 +2,11 @@
 Python Microservice Development
 
 ##### Notes
+- Flask
+  Flask app attribute error: <br/>
+  ![ AttributeError ](https://github.com/lel99999/dev_PythonMicroservices/blob/master/flask_AttributeError.png) <br/>
+  - FIX: add to following: <br/>
+  `app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False` 
 - Docker MacOS
   - Virtualbox is 
     `$VBoxManage list -l hostonlyifs`

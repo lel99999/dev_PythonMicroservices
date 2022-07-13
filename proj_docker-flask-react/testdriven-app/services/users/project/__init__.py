@@ -1,14 +1,16 @@
 # /services/users/project/__init__.py
 
+import sys
 import os
 import datetime
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects.postgresql import JSON
 
 # instantiate app
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
-#app.config.from_object('project.config.DevelopmentConfig')
+app.config.from_object('project.config.DevelopmentConfig')
 
 # set config
 app_settings=os.getenv('APP_SETTINGS')
@@ -25,7 +27,6 @@ class User(db.Model):
     email = db.Column(db.String(128), nullable=False)
     active = db.Column(db.Boolean(), default=True, nullable=False)
 
-import sys
 print(app.config, file=sys.stderr)
 
 @app.route('/users/ping', methods=['GET'])

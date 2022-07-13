@@ -10,11 +10,12 @@ class TestUserService(BaseTestCase):
 
     def test_users(self):
         """Ensure the /ping route behaves correctly"""
-        response = self.client.get('/users/ping')
+#       response = self.client.get('/users/ping')
+        response = self.client.get('http://localhost:5000/users/ping')
         data = json.loads(response.data.decode())
         self.assertEqual(response.status_code, 200)
         self.assertIn('pong', data['message'])
         self.assertIn('success', data['status'])
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     unittest.main()

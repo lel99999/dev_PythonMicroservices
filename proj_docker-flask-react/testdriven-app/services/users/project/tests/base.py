@@ -3,7 +3,9 @@
 from flask_testing import TestCase
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import JSON
-from project import app, db
+from project import create_app, db
+
+app = create_app()
 
 class BaseTestCase(TestCase):
 #   db = SQLAlchemy(self._app)
